@@ -1,0 +1,308 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+\usecolortheme[RGB={47,96,165}]{structure}
+%\usepackage[activeacute,spanish]{babel}
+\usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+%\usetheme{Singapore}  %Sombreado, denso * ; Warsaw ; Singapore
+\usetheme{Warsaw}
+\setbeamercovered{transparent}
+\usefonttheme{structuresmallcapsserif}
+
+
+\title{Aprendiendo a escribir documentos con \LaTeX}
+\author{Benjam\'in P\'erez}
+\institute[SCESI]{Sociedad Cient\'ifica de Estudiantes de Sistemas Inform\'atica \\ $\ $ \\ \includegraphics[height=0.7cm,hiresbb=true]{images/banner}}
+\date[\today]{Happy Hacking ;-)}
+\logo{\includegraphics[height=1cm,hiresbb=true]{images/scesi02_01.png}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section{Introducci\'on}
+
+\begin{frame}{Introduci\'on}
+    \framesubtitle{?`Que es \LaTeX?}
+    \begin{block}{}
+        Primeramente hay que se\~nalar que \LaTeX no es un procesador de textos como:
+    \end{block}
+    \begin{center}
+        \includegraphics[height=5cm,hiresbb=true]{images/procesadores}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Introducci\'on}
+    \framesubtitle{?`Por que \LaTeX?}
+    \begin{block}{Razones para usar \LaTeX}
+        \begin{itemize}
+            \item <1-> Alta calidad tipogr\'afica.
+            \item <2-> Documentos bien estructurados.
+            \item <3-> Fácil generación de todo tipo de índices, listados de bibliografía citada.
+            \item <4-> Excelente calidad en las ecuaciones matemáticas.
+            \item <5-> Permite centrarse en el contenido, no en la forma.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{En otras palabras \LaTeX}
+  \framesubtitle{Es una Belleza}
+  \begin{figure}[t]
+  \begin{center}
+    \includegraphics [height=8cm, width=11cm] {images/img001.jpg}
+  \end{center}
+  \end{figure}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Desventajas}
+  \begin{figure}[t]
+  \begin{center}
+    \includegraphics [height=8cm, width=11cm] {images/img010.png}
+  \end{center}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Desventajas}
+    \begin{itemize}
+        \item<1-> Los comandos/macros.
+        \item<2-> Los archivos que genera: .aux .log ...
+    \end{itemize}
+\end{frame}
+
+\section{El c\'odigo \LaTeX}
+
+\begin{frame}[fragile]{El c\'odigo \LaTeX}
+    \framesubtitle{Hola mundo!}
+    \begin{example}[Ejemplo: Hola Mundo!!]
+\begin{verbatim}
+% Mi primer documento en LaTeX
+\documentclass{article}
+
+\begin{document}
+    Hola Mundo!!
+\end{document}
+\end{verbatim}
+    \end{example}
+\end{frame}
+
+\begin{frame}[fragile]{El c\'odigo \LaTeX}
+    \framesubtitle{Comandos para compilar}
+    \begin{itemize}
+        \item <1->
+        \begin{block}{}
+\begin{verbatim}
+    $ pdflatex holamundo.tex
+\end{verbatim}
+        \end{block}
+        \item <2->
+        \begin{block}{}
+\begin{verbatim}
+    $ evince holamundo.pdf 
+\end{verbatim}
+        \end{block}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{El c\'odigo \LaTeX}
+    \framesubtitle{?`Que significa todo esto?}
+    \begin{definition}[\% comentarios]
+\begin{verbatim}
+    % Mi primer documento en \LaTeX
+\end{verbatim}
+    La primera linea es lo que conocemos como comentarios, el simbolo de \%, cuando \LaTeX $\ $ lo ve ignora 
+    inmediatamente el resto de la linea.
+    \end{definition}
+\end{frame}
+
+\begin{frame}[fragile]{El c\'odigo \LaTeX}
+    \framesubtitle{?`Que significa todo esto?}
+    \begin{definition}[documentclass\{\}]
+\begin{verbatim}
+\documentclass{article}
+\end{verbatim}
+Esta l\'inea es un comando y le dice a \LaTeX que use la clase de documento art\'iculo. Este define que 
+tipo de formato queremos usar. Si quieres usar otro tipo de formato solo cambias article por: 
+    \end{definition}
+    \begin{block}{}
+        \begin{itemize}
+            \item <1-> article
+            \item <2-> letter
+            \item <3-> book
+            \item <4-> beamer
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{El c\'odigo \LaTeX}
+    \framesubtitle{?`Que significa todo esto?}
+    \begin{definition}[begin\{document\}]
+\begin{verbatim}
+\begin{document}
+\end{verbatim}
+Esta l\'inea es la que empieza el ambiente llamado document, este comando en \LaTeX $\ $ es el inicio del 
+documento.
+    \end{definition}
+\end{frame}
+
+\begin{frame}[fragile]{El c\'odigo \LaTeX}
+    \framesubtitle{?`Que significa todo esto?}
+    \begin{definition}[Hola mundo!!]
+\begin{verbatim}
+Hola mundo!!
+\end{verbatim}
+Esta l\'inea solo es el texto que hay en tu documento.
+    \end{definition}
+\end{frame}
+
+\begin{frame}[fragile]{El c\'odigo \LaTeX}
+    \framesubtitle{?`Que significa todo esto?}
+    \begin{definition}[end\{document\}]
+\begin{verbatim}
+\end{document}
+\end{verbatim}
+Esta l\'inea es la que termina el documento.
+    \end{definition}
+\end{frame}
+
+\begin{frame}[fragile]{documentclass\{article\}}
+    \framesubtitle{Algo un poco mas completo}
+
+    \begin{block}{}
+\begin{verbatim}
+\documentclass[a4paper, 12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
+
+\title{Curso de \LaTeX}
+\author{Benjamín Pérez}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\end{document}
+\end{verbatim}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{?`Preguntas?}
+    \begin{alertblock}{Cosas nuevas}
+        \huge {?`Que hay de nuevo?}
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Cosas nuevas}
+    \begin{exampleblock}{}
+    \begin{itemize}
+        \item <1->
+\begin{verbatim}
+\documentclass[a4paper, 12pt]{article}
+\end{verbatim}
+        \item<2->
+\begin{verbatim}
+\usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
+\end{verbatim}
+        \item<3->
+\begin{verbatim}
+\title{Curso de \LaTeX}
+\author{Benjamín Pérez}
+\date{\today}
+\end{verbatim}
+        \item<4->
+\begin{verbatim}
+\maketitle
+\end{verbatim}
+    \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Un poco de la Sintaxis}
+    \begin{block}{}
+    \begin{verbatim}
+\usepackage[options]{package}
+    \end{verbatim}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Abstract/Resumen}
+    \begin{example}
+        \begin{verbatim}
+\begin{abstract}
+    Aqui entra el resumen de tu artículo.
+\end{abstract}
+        \end{verbatim}
+    \end{example}
+\end{frame}
+
+\begin{frame}[fragile]{documentclass\{article\}}
+    \framesubtitle{Algo un poco mas completo}
+
+    \begin{block}{}
+\begin{verbatim}
+\documentclass[a4paper, 12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
+
+\title{Curso de \LaTeX}
+\author{Benjamín Pérez}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+    Aqui entra el resumen del artículo.
+\end{abstract}
+
+\end{document}
+\end{verbatim}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{section \& subsection}
+    \framesubtitle{Estructurar el documento}
+    \begin{exampleblock}{}
+\begin{verbatim}
+\section{Introducci\'on}
+    \LaTeX es un sistema de composición de textos, ..
+\subsection{?`Porque \LaTeX?}
+    Por bla bla bla .....
+
+\section{El c\'odigo \LaTeX}
+
+\subsection{Como compilar}    
+\end{verbatim}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Herramientas}
+    \begin{block}{}
+        \begin{itemize}
+            \item Kile
+            \item Lyx
+            \item Kdissert
+            \item ShareLaTeX
+            \item ...
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{?`Preguntas?}
+    \large {?`Preguntas?}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{}
+        \centerline {\large {Gracias!! :-)}}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Algo de Matem\'aticas}
+$\int^{x=1}_0 \sum^{x=1}_0$
+\end{frame}
+\end{document}

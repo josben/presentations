@@ -1,0 +1,9 @@
+images/*
+*.toc
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.vrb
+
