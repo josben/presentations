@@ -1,0 +1,255 @@
+
+\documentclass{beamer}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{nth}
+\usepackage{alltt}
+\usepackage{mdframed}
+\usepackage{verbatim}
+\usepackage{minted}
+
+\title{SISTEMA DE CONTROL Y SEGUIMIENTO DE VEH\'ICULOS DE LA CORPORACI\'ON COMTECO}
+\author{Jos\'e Benjam\'in P\'erez Soto}
+\institute{Universidad Mayor de San Sim\'on \\ Carrera de Licenciatura en Inform\'atica}
+\date{Septiembre, 2015}
+\logo{\includegraphics[height=1.5cm]{images/umss.jpg}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Indice}
+\tableofcontents
+\end{frame}
+
+\begin{frame}
+  \frametitle{Antecedentes}
+  \section{Antecedentes}
+  \nth{1}: Los registros se lo hacen manualmente en papel
+  \begin{center}
+    \includegraphics[height=3.0in]{images/chapter1/planilla.jpg}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\nth{2}: Se transcribe en una hoja de c\'alculo}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/chapter1/planilla_excel.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\nth{3}: A los archivos se los nombra con la fecha de ese d\'ia}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/chapter1/carpeta_excel.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\nth{4}: Estan en carpetas con el nombre del mes}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/chapter1/carpeta2.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \section{Objetivos}
+  \frametitle{Objetivos}
+  \begin{itemize}
+      \item Registrar en los parqueo la salida y retorno de los veh\'iculos
+      \item Registrar en las oficinas el ingreso de personas
+      \item Programar mantenimiento a los veh\'iculos
+      \item Enviar notificaciones
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \section{Metodolog\'ia}
+  \frametitle{Metodolog\'ia}
+  \begin{center}
+    {\huge BDD} \\
+    Behaviour Driven Development \\
+    \vspace{1cm}
+    {\it Desarrollo Guiado por Comportamiento}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Ventajas}
+  \begin{itemize}
+    \item Fácil de entender
+    \item Fácil de leer
+    \item Fácil de {\bfseries discutir}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sintaxis de una característica o feature}
+  \begin{verbatim}
+    # language: es
+
+  Característica: [nombre de la funcionalidad]
+    Como [un actor/rol]
+    Para [algún beneficio]
+    Quiero [una característica]
+
+    Esquema del escenario: [nombre del escenario]
+      Dado [una condición previa]
+      Cuando [una acción]
+      Entonces [un resultado esperado]
+
+    Esquema del escenario: [...]
+      ...
+    Esquema del escenario: [...]
+      ...
+  \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo: Inicio de sesión}
+  \begin{minted}{Gherkin}
+
+  # language: es
+
+  Caracteristica: Inicio de sesion en el sistema
+      Como un guardia
+      Quiero ingresar al sistema
+      Para registrar ingresos de personas y vehiculos
+
+      Esquema del escenario: Iniciar sesion
+          Dado que ingreso al sistema por el navegador
+          Y voy a la opcion "Ingresar"
+          Y entro con mi nombre de usuario
+          Y mi password
+          Cuando oprima el boton "Ingresar"
+          Entonces ingreso al sistema
+  \end{minted}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Herramientas}
+  \section{Herramientas}
+  \begin{itemize}
+      \item Behave
+      \item Framework Django
+      \item Django-Behave
+      \item Splinter
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Behave}
+  \section{Behave}
+  \begin{center}
+    {\it Es BDD al estilo de Python}
+  \end{center}
+  Behave usa los escenarios y los respalda con c\'odigo escrito en Python.
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{center}
+    Veamos la ejecuci\'on usando:\\
+    \vspace{1cm}
+    {\huge Behave}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Framework Django}
+  Django es un entorno de desarrollo web escrito en Python que fomenta el
+  desarrollo rápido y el diseño limpio.
+  \begin{columns}
+
+    \column{0.5\textwidth}
+      \includegraphics[height=3.0in]{images/chapter5/Django_mvc.png}
+
+    \column{0.5\textwidth}
+      \includegraphics[height=3.0in]{images/chapter5/appsdjango2.png}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pruebas Finales}
+  \section{Pruebas Finales}
+  Con BDD se vio:
+  \begin{itemize}
+      \item Escenarios
+      \item Pruebas antes del desarrollo del sistema
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Herramientas}
+  \begin{itemize}
+      \item Django-Behave
+      \item Splinter
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Configuraci\'on de las aplicaciones}
+  \begin{verbatim}
+flosite
+    |-- manage.py
+    |-- flosite (carpeta principal)
+    |   `-- ...
+    |-- accounts/
+    |  |-- features
+    |  |   |-- behave.ini
+    |  |   |-- environment.py
+    |  |   |-- login.feature
+    |  |   `-- steps
+    |  |       `-- step_login.py
+    |  |-- __init__.py
+    |  |-- models.py
+    |  |-- urls.py
+    |  `-- views.py
+    |-- ...
+
+  \end{verbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{center}
+    Veamos una demostraci\'on
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conclusiones}
+  \section{Conclusiones}
+  \begin{itemize}
+      \item El uso de BDD fue excelente al momento de entender las funcionalidades.
+      \item El uso de herramientas libres ayudo a no tener problemas de licencias.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Recomendaciones}
+  \section{Recomendaciones}
+  \begin{itemize}
+      \item Es importante tener informaci\'on t\'ecnica de los servidores.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \section{Preguntas}
+  \begin{center}
+    Preguntas
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{center}
+    {\huge GRACIAS}
+  \end{center}
+\end{frame}
+
+\end{document}
+
