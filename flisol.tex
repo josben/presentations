@@ -9,72 +9,81 @@
 \usepackage{verbatim}
 \usepackage{minted}
 
-\title{SISTEMA DE CONTROL Y SEGUIMIENTO DE VEH\'ICULOS DE LA CORPORACI\'ON COMTECO}
-\author{Jos\'e Benjam\'in P\'erez Soto}
-\institute{Universidad Mayor de San Sim\'on \\ Carrera de Licenciatura en Inform\'atica}
-\date{Septiembre, 2015}
-\logo{\includegraphics[height=1.5cm]{images/umss.jpg}}
+\title{Django con BDD}
+\author{Benjam\'in P\'erez}
+\institute{Universidad Mayor de San Sim\'on \\ Festival Latinoamericano de Instalación de Software Libre \\ $\ $ \\ \includegraphics[height=0.7cm,hiresbb=true]{images/banner}}
+\date{Abril, 2016}
+\logo{\includegraphics[height=1.5cm]{images/scesi02.png}}
 
 \begin{document}
 
 \frame{\titlepage}
 
 \begin{frame}
-\frametitle{Indice}
-\tableofcontents
-\end{frame}
-
-\begin{frame}
-  \frametitle{Antecedentes}
-  \section{Antecedentes}
-  \nth{1}: Los registros se lo hacen manualmente en papel
+  \frametitle{Como se hace la entrega del Software}
   \begin{center}
-    \includegraphics[height=3.0in]{images/chapter1/planilla.jpg}
+    \includegraphics[height=3.0in]{images/bdd/img_time_line.png}
   \end{center}
 \end{frame}
 
 \begin{frame}
-  \frametitle{\nth{2}: Se transcribe en una hoja de c\'alculo}
+  \frametitle{Como se hace la entrega del Software}
   \begin{center}
-    \includegraphics[width=\textwidth]{images/chapter1/planilla_excel.png}
+    \includegraphics[height=3.0in]{images/bdd/img_planning.png}
   \end{center}
 \end{frame}
 
 \begin{frame}
-  \frametitle{\nth{3}: A los archivos se los nombra con la fecha de ese d\'ia}
+  \frametitle{Como se hace la entrega del Software}
   \begin{center}
-    \includegraphics[width=\textwidth]{images/chapter1/carpeta_excel.png}
+    \includegraphics[height=3.0in]{images/bdd/img_analysis.png}
   \end{center}
 \end{frame}
 
 \begin{frame}
-  \frametitle{\nth{4}: Estan en carpetas con el nombre del mes}
+  \frametitle{Como se hace la entrega del Software}
   \begin{center}
-    \includegraphics[width=\textwidth]{images/chapter1/carpeta2.png}
+    \includegraphics[height=3.0in]{images/bdd/img_design.png}
   \end{center}
 \end{frame}
 
 \begin{frame}
-  \section{Objetivos}
-  \frametitle{Objetivos}
-  {\bfseries Objetivo General}
-
-  Sistematizar el control de veh\'iculos y de personas para realizar el control
-  y gesti\'on de medidas preventivas y correctivas en seguridad de activos y
-  valores de la empresa.\\
-
-  {\bfseries Objetivos Especificos}
-  \begin{itemize}
-      \item Registrar en los parqueo la salida y retorno de los veh\'iculos
-      \item Registrar en las oficinas el ingreso de personas
-      \item Programar mantenimiento a los veh\'iculos
-      \item Enviar notificaciones
-  \end{itemize}
+  \frametitle{Como se hace la entrega del Software}
+  \begin{center}
+    \includegraphics[height=3.0in]{images/bdd/img_code.png}
+  \end{center}
 \end{frame}
 
 \begin{frame}
-  \section{Metodolog\'ia}
-  \frametitle{Metodolog\'ia}
+  \frametitle{Como se hace la entrega del Software}
+  \begin{center}
+    \includegraphics[height=3.0in]{images/bdd/img_test.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Como se hace la entrega del Software}
+  \begin{center}
+    \includegraphics[height=3.0in]{images/bdd/img_deploy.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Y cu\'al es el problema?}
+  \begin{center}
+    \includegraphics[height=2.5in]{images/bdd/problem.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{center}
+    \includegraphics[height=2.5in]{images/bdd/solucion.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{BDD}
   \begin{center}
     {\huge BDD} \\
     Behaviour Driven Development \\
@@ -87,12 +96,42 @@
 \end{frame}
 
 \begin{frame}
+\frametitle{Seg\'un Dan North}
+  \includegraphics[height=0.8in]{images/bdd/dannorth.jpg}
+  \begin{center}
+    \vspace{0.5cm}
+    {\it ``Behaviour-driven development is about implementing an application by describing
+    its behaviour from the perspective of its stakeholders''}
+
+    \vspace{0.5cm}
+
+    {\it ``BDD es la implementación de una aplicación mediante la descripción de su comportamiento
+      desde la perspectiva de los interesados''}
+  \end{center}
+\end{frame}
+
+\begin{frame}
   \frametitle{Ventajas}
   \begin{itemize}
     \item Fácil de entender
     \item Fácil de leer
     \item Fácil de {\bfseries discutir}
   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sintaxis de una característica o feature}
+  \begin{alltt}
+\emph{Feature:} [nombre de la característica en general a probar]
+  \emph{As} [un actor/rol]
+  \emph{In order to} [algún beneficio]
+  \emph{I want} [una característica]
+
+  \emph{Scenario:} [primera funcionalidad]
+    \emph{Given} [una condición previa]
+    \emph{When} [una acción]
+    \emph{Then} [un resultado esperado]
+\end{alltt}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -124,17 +163,17 @@
   # language: es
 
   Caracteristica: Inicio de sesion en el sistema
-      Como un guardia
+      Como un usuario
       Quiero ingresar al sistema
-      Para registrar ingresos de personas y vehiculos
+      Para probar mi cuenta
 
       Esquema del escenario: Iniciar sesion
           Dado que ingreso al sistema por el navegador
           Y voy a la opcion "Ingresar"
-          Y entro con mi nombre de usuario
-          Y mi password
+          Y entro con mi nombre de usuario josben
+          Y mi password asdf
           Cuando oprima el boton "Ingresar"
-          Entonces ingreso al sistema
+          Entonces debo ingreso al sistema
   \end{minted}
 \end{frame}
 
@@ -230,23 +269,6 @@ flosite
 \end{frame}
 
 \begin{frame}
-  \frametitle{Conclusiones}
-  \section{Conclusiones}
-  \begin{itemize}
-      \item El uso de BDD fue excelente al momento de entender las funcionalidades.
-      \item El uso de herramientas libres ayudo a no tener problemas de licencias.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Recomendaciones}
-  \section{Recomendaciones}
-  \begin{itemize}
-      \item Es importante tener informaci\'on t\'ecnica de los servidores.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
   \frametitle{}
   \section{Preguntas}
   \begin{center}
@@ -257,6 +279,14 @@ flosite
 \begin{frame}
   \frametitle{}
   \begin{center}
+  \begin{columns}
+    \column{0.1\textwidth}
+      \includegraphics[height=2cm, width=2cm]{images/github.png}
+
+    \column{0.8\textwidth}
+      \url {http://github.com/josben}
+  \end{columns}
+
     {\huge GRACIAS}
   \end{center}
 \end{frame}

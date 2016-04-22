@@ -1,0 +1,97 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+\usecolortheme[RGB={47,96,165}]{structure}
+%\usepackage[activeacute,spanish]{babel}
+%\usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+%\usetheme{Singapore}  %Sombreado, denso * ; Warsaw ; Singapore
+\usetheme{Warsaw}
+\setbeamercovered{transparent}
+\usefonttheme{structuresmallcapsserif}
+
+
+\title{Kanban}
+\author{Benjam\'in P\'erez}
+\institute[SCESI]{Sociedad Cient\'ifica de Estudiantes de Sistemas Inform\'atica \\ $\ $ \\ \includegraphics[height=0.7cm,hiresbb=true]{images/banner}}
+\date[\today]{Happy Hacking ;-)}
+\logo{\includegraphics[height=1cm,hiresbb=true]{images/scesi02_01.png}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Que es?}
+  \begin{center}
+    Kanban, es una t\'ecnica para la gestion de un proceso de desarrollo de softwre.
+  \end{center}
+\end{frame}
+
+\begin{frame}{Proceso de desarrollo}
+  Un proceso de desarrollo de software puede ser pensado como una tuber\'ia.
+  \begin{center}
+      \includegraphics[height=2cm,hiresbb=true]{kanban/software-pipeline.png}
+  \end{center}
+  \begin{itemize}
+      \item Analisis
+      \item Desarrollo
+      \item Test
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{El efecto del cuello de botella}
+  En una tuber\'ia el cuello de botella restringe el flujo y el rendimiento en conjunto es limitado.
+  \begin{center}
+      \includegraphics[height=2cm,hiresbb=true]{kanban/bottleneck-inventory.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Tablero de trabajo}
+  \begin{center}
+      \includegraphics[height=4cm,hiresbb=true]{kanban/kanban-board-0.png}
+  \end{center}
+  Los n\'umeros que se encuentran en la parte superior de cada columna es el l\'imite de tareas.
+\end{frame}
+
+\begin{frame}{Ejemplo de trabajo}
+  \begin{center}
+      \includegraphics[height=4cm,hiresbb=true]{kanban/kanban-board-1.png}
+  \end{center}
+  Donde esta el problema?
+\end{frame}
+
+\begin{frame}{Ejemplo de trabajo}
+  \begin{center}
+      \includegraphics[height=4cm,hiresbb=true]{kanban/kanban-board-2.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Ejemplo de trabajo}
+  \begin{center}
+      \includegraphics[height=4cm,hiresbb=true]{kanban/kanban-board-3.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Herramientas}
+  \framesubtitle{taiga.io}
+  \begin{center}
+      \includegraphics[height=4cm,hiresbb=true]{kanban/taiga.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Taiga y Kanban}
+  \begin{center}
+      \includegraphics[height=5cm,hiresbb=true]{kanban/kanban-screen.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}{http://taiga.io}
+  Veamos una demostraci\'on.
+\end{frame}
+
+\begin{frame}{Fin}
+  Gracias.
+\end{frame}
+
+\end{document}
